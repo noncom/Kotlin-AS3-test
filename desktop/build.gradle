@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'kotlin'
+sourceSets.main.java.srcDirs = ["src/main/java"]
+sourceSets.main.kotlin.srcDirs = ["src/main/java"] // even this does not help, although Android Studio works OK even without this
+
+buildscript {
+    ext.kotlin_version = '1.1.51'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile files("../app/assets")
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
